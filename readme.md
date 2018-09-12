@@ -2,7 +2,7 @@ MOPT
 
 Many Options Push-To for dobsionian telescopes
 
-Attempt at something big:
+Attempt at something bigger:
 
 present tiny form to select celestial object;
 scrape coordinates of celestial object;
@@ -13,8 +13,8 @@ present those things in a mobile web-app;
 read out a magnetometer for Altitude and rotary sensor for Azimuth;
 provide Push-To directions in the mobile web-app to direct user to celestial object;
 optional: make it look good ^_^
-I'll start with:
 
+But I'll start with:
 present basic tiny form to select celestial object;
 scrape coordinates of celestial object;
 scrape information of celestial object;
