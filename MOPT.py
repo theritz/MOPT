@@ -26,7 +26,7 @@ def apply_caching(response):
 # let's start the input template
 @app.route('/')
 def celestobj():
-    return render_template('celestobj.html')
+    return render_template('.celestobj.html')
 
 # ..aaand we're back to some processing
 @app.route('/',methods = ['POST', 'GET'])
