@@ -26,7 +26,7 @@ def apply_caching(response):
 # let's start the input template
 @app.route('/')
 def celestobj():
-    return render_template('.celestobj.html')
+    return render_template('celestobj.html')
 
 # ..aaand we're back to some processing
 @app.route('/',methods = ['POST', 'GET'])
@@ -34,9 +34,10 @@ def result():
     if request.method == 'POST':
         srch = request.form['name']
         # download the DSS image
-        image_file = download_file('http://archive.eso.org/dss/dss/image?ra=&dec=&equinox=J2000&name=%s&x=20&y=20&Sky-Survey=DSS1&mime-type=download-fits&statsmode=WEBFORM' % (srch), cache=True )
+        #image_file = download_file('http://archive.eso.org/dss/dss/image?ra=&dec=&equinox=J2000&name=%s&x=20&y=20&Sky-Survey=DSS1&mime-type=download-fits&statsmode=WEBFORM' % (srch), cache=True )
+        image_file = download_file('http://archive.eso.org/dss/dss/image?ra=&dec=&equinox=J2000&name=M33&x=20&y=20&Sky-Survey=DSS1&mime-type=download-fits&statsmode=WEBFORM', cache=True )
         image_data = fits.getdata(image_file)
-        imageio.imsave('..//MOPT//static//img//DSS.jpg', image_data)
+        imageio.imsave('../MOPT/static/img/DSS.jpg', image_data)
         # scrape the coordinates
         match = str(SkyCoord.from_name(srch))
         coord = [float(val) for val in re.findall(r"[\d.]+", match)]
